@@ -1,4 +1,3 @@
-
 # Quokka
 
 Quokka is a tool that takes your daily 750words.com writings and
@@ -7,7 +6,7 @@ saying how you're doing.
 
 It's also the happiest animal in the world, just look at it!
 
-![](http://imgur.com/L5iA5gy)
+![](http://i.imgur.com/L5iA5gy.jpg)
 
 # How to use
 
@@ -19,4 +18,4 @@ haskell code you should run on a server somewhere.
 
 MIT Licensed
 
-![](http://i.imgur.com/hqMqb4T.jpg)
+![](http://i.imgur.com/hgMqb4T.jpg)

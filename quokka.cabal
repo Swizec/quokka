@@ -5,10 +5,12 @@ License:             MIT
 License-file:        LICENSE
 Author:              Swizec Teller
 Maintainer:          swizec@swizec.com
+Homepage:            https://github.com/Swizec/quokka
 Build-Type:          Simple
 Cabal-Version:       >=1.2
 Executable quokka
   Main-is:           Quokka.hs
   Build-Depends:     base (>= 3 && < 5),
                      HTTP,
-                     network
+                     network,
+                     shpider

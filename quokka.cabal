@@ -10,4 +10,5 @@ Cabal-Version:       >=1.2
 Executable quokka
   Main-is:           Quokka.hs
   Build-Depends:     base (>= 3 && < 5),
-                     download
+                     HTTP,
+                     network

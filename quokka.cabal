@@ -1,0 +1,13 @@
+Name:                Quokka
+Version:             0.0
+Description:         How happy are you?
+License:             MIT
+License-file:        LICENSE
+Author:              Swizec Teller
+Maintainer:          swizec@swizec.com
+Build-Type:          Simple
+Cabal-Version:       >=1.2
+Executable quokka
+  Main-is:           Quokka.hs
+  Build-Depends:     base (>= 3 && < 5),
+                     download

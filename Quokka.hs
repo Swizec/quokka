@@ -1,6 +1,4 @@
 
---import Network.HTTP
---import Network.HTTP.Conduit
 import Network.URI
 import Data.Maybe
 import Network.Shpider
@@ -20,6 +18,19 @@ login750 = runShpider $ do
 
     return loggedin
 
+fetch :: Int -> Int -> IO (Maybe String)
+fetch year month = runShpider $ do
+  (status, page) <- download "http://750words.com/export/2013/4"
+
+  case status of
+    Ok -> return $ Just $ source page
+    _ -> return Nothing
+
 main = do
   loggedin <- login750
-  print $ page
+  content <- fetch 2013 4
+
+  print content
+--  case loggedin of
+--    Ok -> print $ fromJust $ fetch 2013 4
+--    _ -> print "Error"

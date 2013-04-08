@@ -7,21 +7,19 @@ import Network.Shpider
 
 import Secrets
 
-login750 :: IO (Maybe String)
+login750 :: IO (ShpiderCode)
 login750 = runShpider $ do
     download "https://750words.com/auth"
     forms <- getFormsByAction "/auth/signin"
 
-    page <- case forms of
+    (loggedin, _) <- case forms of
       theForm : _ -> sendForm $ fillOutForm theForm $ pairs $ do
           "person[mail_address]" =: Secrets.username
           "person[password]" =: Secrets.password
-      _ -> download "https://750words.com"
+      _ -> download "https://750words.com" -- no login form means we're logged in already
 
-    case page of
-      (Ok, page) -> return $ Just $ source page
-      (_, _) -> return Nothing
+    return loggedin
 
 main = do
-  page <- login750
+  loggedin <- login750
   print $ page

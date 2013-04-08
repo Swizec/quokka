@@ -13,4 +13,5 @@ Executable quokka
   Build-Depends:     base (>= 3 && < 5),
                      HTTP,
                      network,
-                     shpider
+                     shpider,
+                     containers

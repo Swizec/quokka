@@ -2,8 +2,12 @@
 import Network.URI
 import Data.Maybe
 import Network.Shpider
+import qualified Data.Map as M
 
 import Secrets
+
+csrftoken :: Form -> String
+csrftoken form = fromJust $ M.lookup "authenticity_token" (inputs form)
 
 --login750 :: ShpiderCode
 login750 = do
@@ -14,7 +18,7 @@ login750 = do
       theForm : _ -> sendForm $ fillOutForm theForm $ pairs $ do
           "person[mail_address]" =: Secrets.username
           "person[password]" =: Secrets.password
-      --_ -> download "http://google.com" -- no login form means we're logged in already
+          "authenticity_token" =: csrftoken theForm
 
     return page
 
